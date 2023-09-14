@@ -53,6 +53,8 @@ async def search_person(param: str):
             )
     except Exception as e:
         return {"error": f"An error occurred: {str(e)}"}
+    if not select_query.data:
+        return {"message": "User not found", "status_code": 404}
     return select_query
 
 
